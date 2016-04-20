@@ -1,0 +1,99 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Event name:</strong>
+  <%= @event.event_name %>
+</p>
+
+<p>
+  <strong>Event country:</strong>
+  <%= @event.event_country %>
+</p>
+
+<p>
+  <strong>Event city:</strong>
+  <%= @event.event_city %>
+</p>
+
+<p>
+  <strong>Start date:</strong>
+  <%= @event.start_date %>
+</p>
+
+<p>
+  <strong>End date:</strong>
+  <%= @event.end_date %>
+</p>
+
+<p>
+  <strong>Event description:</strong>
+  <%= @event.event_description %>
+</p>
+
+<p>
+  <strong>Venue address:</strong>
+  <%= @event.venue_address %>
+</p>
+
+<p>
+  <strong>Event tickets:</strong>
+  <%= @event.event_tickets %>
+</p>
+
+<p>
+  <strong>Event type:</strong>
+  <%= @event.event_type %>
+</p>
+
+<p>
+  <strong>Transport type:</strong>
+  <%= @event.transport_type %>
+</p>
+
+<p>
+  <strong>Transport name:</strong>
+  <%= @event.transport_name %>
+</p>
+
+<p>
+  <strong>Transport booking:</strong>
+  <%= @event.transport_booking %>
+</p>
+
+<p>
+  <strong>Transport phone:</strong>
+  <%= @event.transport_phone %>
+</p>
+
+<p>
+  <strong>Transport info:</strong>
+  <%= @event.transport_info %>
+</p>
+
+<p>
+  <strong>Hotel name:</strong>
+  <%= @event.hotel_name %>
+</p>
+
+<p>
+  <strong>Hotel address:</strong>
+  <%= @event.hotel_address %>
+</p>
+
+<p>
+  <strong>Hotel phone:</strong>
+  <%= @event.hotel_phone %>
+</p>
+
+<p>
+  <strong>Additional details:</strong>
+  <%= @event.additional_details %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @event.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Back', events_path %>
