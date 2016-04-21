@@ -1,6 +1,11 @@
+<ol class="breadcrumb">
+  <li><a href="/events/">My Events</a></li>
+  <li class="#">Edit event</li>
+  <li class="active"><%= @event.event_name %></li>
+</ol>
+
 <h1>Editing Event</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @event %> |
-<%= link_to 'Back', events_path %>
+<%= link_to 'Show', @event %>

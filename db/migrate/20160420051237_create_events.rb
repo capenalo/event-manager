@@ -9,8 +9,8 @@ class CreateEvents < ActiveRecord::Migration
       t.text :event_description
       t.string :venue_address
       t.string :event_tickets
-      t.integer :event_type
-      t.integer :transport_type
+      t.integer :event_type,      default: 0
+      t.integer :transport_type,  default: 0
       t.string :transport_name
       t.string :transport_booking
       t.string :transport_phone
@@ -18,10 +18,12 @@ class CreateEvents < ActiveRecord::Migration
       t.string :hotel_name
       t.string :hotel_address
       t.string :hotel_phone
+      t.string :hotel_reservation
       t.text :additional_details
       t.integer :user_id
 
       t.timestamps null: false
     end
+    add_index :events, [:user_id, :created_at]
   end
 end

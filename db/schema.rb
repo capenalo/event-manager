@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20160420051237) do
     t.text     "event_description"
     t.string   "venue_address"
     t.string   "event_tickets"
-    t.integer  "event_type"
-    t.integer  "transport_type"
+    t.integer  "event_type",         default: 0
+    t.integer  "transport_type",     default: 0
     t.string   "transport_name"
     t.string   "transport_booking"
     t.string   "transport_phone"
@@ -31,11 +31,14 @@ ActiveRecord::Schema.define(version: 20160420051237) do
     t.string   "hotel_name"
     t.string   "hotel_address"
     t.string   "hotel_phone"
+    t.string   "hotel_reservation"
     t.text     "additional_details"
     t.integer  "user_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
   end
+
+  add_index "events", ["user_id", "created_at"], name: "index_events_on_user_id_and_created_at"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

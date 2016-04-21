@@ -1,10 +1,12 @@
 class EventsController < ApplicationController
+  before_action :set_event_types, :set_transport_types
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+    # @events = Event.all
+    @events = Event.where( { user_id: current_user.id } )
   end
 
   # GET /events/1
@@ -69,6 +71,14 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:event_name, :event_country, :event_city, :start_date, :end_date, :event_description, :venue_address, :event_tickets, :event_type, :transport_type, :transport_name, :transport_booking, :transport_phone, :transport_info, :hotel_name, :hotel_address, :hotel_phone, :additional_details, :user_id)
+      params.require(:event).permit(:event_name, :event_country, :event_city, :start_date, :end_date, :event_description, :venue_address, :event_tickets, :event_type, :transport_type, :transport_name, :transport_booking, :transport_phone, :transport_info, :hotel_name, :hotel_address, :hotel_phone, :additional_details, :user_id).merge(user: current_user)
+    end
+    
+    def set_event_types
+      @event_types = Event.event_types
+    end
+    
+    def set_transport_types
+      @transport_types = Event.transport_types
     end
 end

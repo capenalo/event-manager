@@ -2,6 +2,10 @@
 
 <h1>Listing Events</h1>
 
+<%= link_to new_event_path, class: 'btn btn-success' do %>
+  <i class="glyphicon glyphicon-plus"></i> New Event
+<% end %>
+
 <table>
   <thead>
     <tr>
@@ -48,16 +52,22 @@
         <td><%= event.hotel_name %></td>
         <td><%= event.hotel_address %></td>
         <td><%= event.hotel_phone %></td>
+        <td><%= event.hotel_reservation %></td>
         <td><%= event.additional_details %></td>
         <td><%= event.user_id %></td>
-        <td><%= link_to 'Show', event %></td>
-        <td><%= link_to 'Edit', edit_event_path(event) %></td>
-        <td><%= link_to 'Destroy', event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to event, class: 'btn btn-large btn-primary' do %>
+            <i class="glyphicon glyphicon-eye-open"></i> Show 
+            <% end %>
+        </td>
+        <td><%= link_to edit_event_path(event), class: 'btn btn-large btn-primary' do %>
+            <i class="glyphicon glyphicon-pencil"></i> Edit 
+            <% end %>
+        </td>
+        <td><%= link_to event, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-large btn-primary', class: 'btn btn-large btn-primary' do %>
+            <i class="glyphicon glyphicon-trash"></i> Delete 
+            <% end %>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
