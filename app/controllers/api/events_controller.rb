@@ -1,19 +1,12 @@
-class EventsController < ApplicationController
-  before_action :authenticate_user!, :except => [:show, :index]
+class Api::EventsController < ApplicationController
   before_action :set_event_types, :set_transport_types
   before_action :set_event, only: [:show, :edit, :update, :destroy]
   before_action :all_events, only:[:index, :create, :destroy, :update]
-  
-  respond_to :html, :js
 
   # GET /events
   # GET /events.json
   def all_events
-    if (nil != current_user)
-      @events = Event.where( { user_id: current_user.id } )
-    else
-      @events = Event.all
-    end
+    @events = Event.all
   end
 
   # GET /events/1
@@ -37,10 +30,8 @@ class EventsController < ApplicationController
 
     respond_to do |format|
       if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
         format.json { render :show, status: :created, location: @event }
       else
-        format.html { render :new }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -51,10 +42,8 @@ class EventsController < ApplicationController
   def update
     respond_to do |format|
       if @event.update(event_params)
-        format.html { redirect_to @event, notice: 'Event was successfully updated.' }
         format.json { render :show, status: :ok, location: @event }
       else
-        format.html { render :edit }
         format.json { render json: @event.errors, status: :unprocessable_entity }
       end
     end
@@ -63,13 +52,10 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event.destroy!
-    
-    # @event.destroy
-    # respond_to do |format|
-    #   format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
-    #   format.json { head :no_content }
-    # end
+    @event.destroy
+    respond_to do |format|
+      format.json { head :no_content }
+    end
   end
 
   private
