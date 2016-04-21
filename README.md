@@ -1,24 +1,16 @@
+<p>This is the final project for CIS 658 - Web Architectures at GVSU.</p>
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+<h2>Features</h2>
 
-
-Welcome to your Rails project on Cloud9 IDE!
-
-To get started, just do the following:
-
-1. Run the project with the "Run Project" button in the menu bar on top of the IDE.
-2. Preview your new app by clicking on the URL that appears in the Run panel below (https://personal-event-manager-capenalo.c9users.io/).
-
-Happy coding!
-The Cloud9 IDE team
-
-
-## Support & Documentation
-
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+<ul>
+<li>1. The web app must utilize a database backend.</li>
+<li>2. Utilize a responsive CSS framework of your choice (Bootstrap, Pure, etc.) so that your web app
+looks great on mobile devices as well as desktops.</li>
+<li>3. Make sure you have at least one UI feature that uses AJAX.</li>
+<li>4. Expose the key data persisted in your apps database via a RESTful web service. The web service
+should be documented somewhere obvious in your web app (e.g. a link “developers” on your page footer, or about page).</li>
+<li>5. Make sure all forms, fields, etc. are implemented. Your web app should be completely
+implemented at the conclusion of this project.</li>
+<li>Deployment: You must deploy your app on a cloud-based hosting provider (you can deploy free on
+Heroku as demonstrated in class).</li>
+</ul>
