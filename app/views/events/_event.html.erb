@@ -1,0 +1,23 @@
+<div class="col-sm-8 col-md-6">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title"><%= event.event_name %></h3>
+    </div>
+    <div class="panel-body">
+        <p><strong>Start date:</strong> <%= event.start_date %></p>
+        <p><strong>End date:</strong> <%= event.end_date %></p>
+        <p><strong>Description:</strong> <%= event.event_description %></p>
+        <p> <%= link_to event, class: 'btn btn-large btn-primary' do %>
+            <i class="glyphicon glyphicon-eye-open"></i> View 
+            <% end %> 
+           <%= link_to edit_event_path(event), class: 'btn btn-large btn-primary' do %>
+            <i class="glyphicon glyphicon-pencil"></i> Edit 
+            <% end %>
+           <%= link_to event, method: :delete, data: { confirm: 'Are you sure?' }, remote: true,  :class => 'btn btn-large btn-primary', class: 'btn btn-large btn-primary' do %>
+            <i class="glyphicon glyphicon-trash"></i> Delete 
+            <% end %>
+        </p>
+    </div>
+  </div>
+</div>
+

@@ -5,69 +5,8 @@
 <%= link_to new_event_path, class: 'btn btn-success' do %>
   <i class="glyphicon glyphicon-plus"></i> New Event
 <% end %>
+<br></br>
 
-<table>
-  <thead>
-    <tr>
-      <th>Event name</th>
-      <th>Event country</th>
-      <th>Event city</th>
-      <th>Start date</th>
-      <th>End date</th>
-      <th>Event description</th>
-      <th>Venue address</th>
-      <th>Event tickets</th>
-      <th>Event type</th>
-      <th>Transport type</th>
-      <th>Transport name</th>
-      <th>Transport booking</th>
-      <th>Transport phone</th>
-      <th>Transport info</th>
-      <th>Hotel name</th>
-      <th>Hotel address</th>
-      <th>Hotel phone</th>
-      <th>Additional details</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= event.event_name %></td>
-        <td><%= event.event_country %></td>
-        <td><%= event.event_city %></td>
-        <td><%= event.start_date %></td>
-        <td><%= event.end_date %></td>
-        <td><%= event.event_description %></td>
-        <td><%= event.venue_address %></td>
-        <td><%= event.event_tickets %></td>
-        <td><%= event.event_type %></td>
-        <td><%= event.transport_type %></td>
-        <td><%= event.transport_name %></td>
-        <td><%= event.transport_booking %></td>
-        <td><%= event.transport_phone %></td>
-        <td><%= event.transport_info %></td>
-        <td><%= event.hotel_name %></td>
-        <td><%= event.hotel_address %></td>
-        <td><%= event.hotel_phone %></td>
-        <td><%= event.hotel_reservation %></td>
-        <td><%= event.additional_details %></td>
-        <td><%= event.user_id %></td>
-        <td><%= link_to event, class: 'btn btn-large btn-primary' do %>
-            <i class="glyphicon glyphicon-eye-open"></i> Show 
-            <% end %>
-        </td>
-        <td><%= link_to edit_event_path(event), class: 'btn btn-large btn-primary' do %>
-            <i class="glyphicon glyphicon-pencil"></i> Edit 
-            <% end %>
-        </td>
-        <td><%= link_to event, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-large btn-primary', class: 'btn btn-large btn-primary' do %>
-            <i class="glyphicon glyphicon-trash"></i> Delete 
-            <% end %>
-        </td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div id="events" class="row">
+  <%= render @events %>
+</div>

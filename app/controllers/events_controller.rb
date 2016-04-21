@@ -1,10 +1,13 @@
 class EventsController < ApplicationController
   before_action :set_event_types, :set_transport_types
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :all_events, only:[:index, :create, :destroy, :update]
+  
+  respond_to :html, :js
 
   # GET /events
   # GET /events.json
-  def index
+  def all_events
     # @events = Event.all
     @events = Event.where( { user_id: current_user.id } )
   end
@@ -56,11 +59,13 @@ class EventsController < ApplicationController
   # DELETE /events/1
   # DELETE /events/1.json
   def destroy
-    @event.destroy
-    respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @event.destroy!
+    
+    # @event.destroy
+    # respond_to do |format|
+    #   format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+    #   format.json { head :no_content }
+    # end
   end
 
   private
